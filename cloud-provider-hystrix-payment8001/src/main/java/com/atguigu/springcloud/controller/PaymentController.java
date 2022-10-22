@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author djx
- * @date 2022年10月21日15:00:50
+ * @date 2022年10月21日1 5:00:50
  */
 @RestController
 @Slf4j
@@ -31,6 +31,12 @@ public class PaymentController {
         return result + "**" + servePort;
     }
 
+    /**
+     * 服务降级
+     * @param id
+     * @return
+     * @throws InterruptedException
+     */
     @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id) throws InterruptedException
     {
@@ -38,6 +44,21 @@ public class PaymentController {
         log.info("****result: "+result);
         return result;
     }
+
+
+    /**
+     * 测试服务熔断 之后服务降级
+     * @param id
+     * @return
+     */
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id,Integer sb)
+    {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("****result: "+result);
+        return result;
+    }
+
 
 
 }
