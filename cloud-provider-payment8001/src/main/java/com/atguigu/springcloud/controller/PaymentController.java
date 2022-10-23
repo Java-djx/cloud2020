@@ -62,7 +62,6 @@ public class PaymentController {
      */
     @GetMapping(value = "/payment/discovery")
     public Object discovery() {
-
         List<String> services = discoveryClient.getServices();
         for (String element : services) {
             log.info("****element:" + element);
@@ -76,6 +75,7 @@ public class PaymentController {
     }
 
 
+
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB() {
         return serverPort;
@@ -83,16 +83,16 @@ public class PaymentController {
 
     /**
      * 延迟三秒模仿业务场景
+     *
      * @return
      */
     @GetMapping(value = "/payment/fegin/timeout")
-    public String getPaymentTimeout(){
+    public String getPaymentTimeout() {
         try {
             Thread.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         return serverPort;
     }
 }
