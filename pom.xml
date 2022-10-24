@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.atguigu.springcloud</groupId>
     <artifactId>cloud2020</artifactId>
     <version>1.0-SNAPSHOT</version>
     <!-- 第一步 打包方式pom-->
     <packaging>pom</packaging>
-
-
     <modules>
         <module>cloud-provider-payment8001</module>
         <module>cloud-consumer-order80</module>
@@ -26,9 +23,16 @@
         <module>cloud-consumer-feign-hystrix-order80</module>
         <module>cloud-consumer-hystrix-dashboard9001</module>
         <module>cloud-gateway-gateway9527</module>
+        <module>cloud-config-center-3344</module>
+        <module>cloud-config-client-3355</module>
+        <module>cloud-config-client-3366</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
+        <module>cloud-stream-rabbitmq-consumer8802</module>
+        <module>cloud-stream-rabbitmq-consumer8803</module>
+        <module>cloud-stream-rabbitmq-consumer8804</module>
+        <module>cloudalibaba-provider-payment9001</module>
+        <module>cloudalibaba-provider-payment9002</module>
     </modules>
-
-
 
     <!-- 统一管理jar包版本 -->
     <properties>

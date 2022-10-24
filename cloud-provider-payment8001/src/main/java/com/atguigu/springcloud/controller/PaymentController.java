@@ -75,7 +75,6 @@ public class PaymentController {
     }
 
 
-
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB() {
         return serverPort;
@@ -94,6 +93,16 @@ public class PaymentController {
             e.printStackTrace();
         }
         return serverPort;
+    }
+
+    /**
+     * 发起请求 查看调用链路
+     *
+     * @return
+     */
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin() {
+        return "hi ,i'am paymentzipkin server fall back，welcome to atguigu，O(∩_∩)O哈哈~";
     }
 }
  
