@@ -3,6 +3,9 @@ package com.atguigu.springcloud.alibaba.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.atguigu.springcloud.alibaba.service.OrderQueryService;
+import com.atguigu.springcloud.alibaba.service.PaymentService;
+import com.atguigu.springcloud.entities.CommonResult;
+import com.atguigu.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -25,7 +29,7 @@ public class FlowLimitController {
     private OrderQueryService orderQueryService;
 
     @GetMapping("/getOrder/{id}")
-    public String queryOrder1(@PathVariable("id") String id) {
+    public String queryOrder1(@PathVariable(value = "id") String id) {
 
         //模仿异常
         int age = 10 / 0;
@@ -80,7 +84,7 @@ public class FlowLimitController {
             returnStr = "-----testHotKey" + Class.forName("com.atguigu.springcloud.alibaba.controller.FlowLimitController")
                     + p1
                     + p2;
-            log.info("****返回结果:"+returnStr);
+            log.info("****返回结果:" + returnStr);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -99,6 +103,13 @@ public class FlowLimitController {
         return "-----dealHandler_testHotKey 服务繁忙";
     }
 
+    @Resource
+    private PaymentService paymentService;
+
+    @GetMapping(value = "/consumer/openfegin/paymentSQL/{id}")
+    public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
+        return paymentService.paymentSQL(id);
+    }
 }
  
  

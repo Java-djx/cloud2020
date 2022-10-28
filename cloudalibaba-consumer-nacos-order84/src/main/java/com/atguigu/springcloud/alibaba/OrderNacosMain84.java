@@ -8,14 +8,15 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * @version 1.0
  * @Author djx
- * @Date 2022/10/26 15:05
+ * @Date 2022/10/27 19:19
  */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class SentinelMain8401 {
-    
+public class OrderNacosMain84 {
+
     public static void main(String[] args){
-        SpringApplication.run(SentinelMain8401.class,args);
+        SpringApplication.run(OrderNacosMain84.class,args);
     }
+
 }
