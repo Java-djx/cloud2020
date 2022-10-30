@@ -1,6 +1,6 @@
 package com.atguigu.springcloud.service.impl;
 
-import com.atguigu.springcloud.dao.PaymentDao;
+import com.atguigu.springcloud.alibaba.dao.PaymentDao;
 import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
